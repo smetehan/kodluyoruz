@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css"/>
+ 
+    <style>
+        .tabBlok
+        {
+            background-color:#57574f;
+            border:solid 0px #FFA54F;
+            border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+            max-width:200px;
+            width:100%;
+            overflow:hidden;
+            display:block;
+        }
+        .dijitalSaat
+        {
+            vertical-align:middle;
+            font-family:Orbitron;
+            font-size:40px;
+            font-weight:normal;
+            color:#FFF;
+            padding:0 10px;
+        }
+        .saat
+        {
+            vertical-align:middle; 
+            font-family:Orbitron;
+            font-size:20px;
+            font-weight:normal;
+            color:#FFF;
+        }
+        .zemin{
+            background-color:#F3F3F3;
+            max-width:220px;
+            width:100%;
+            margin:0 auto;
+            padding:20px;
+        }
+    </style>
+    <title>Kodluyoruz Javascript Saat Ödevi</title>
+  </head>
+  <body class="bg-dark" onload="dijitalSaat();">
+    <div class="text-center">
+      <img
+        src="https://cdn.sanity.io/images/9kdepi1d/production/65c832d202a503b15d99e628f4313782f3ef50db-300x62.png"
+        alt=""
+        class="rounded"
+      />
+      <div class="text1 text-center">
+        Merhaba, <strong><span id="myName"></span></strong>! Hoş geldin!
+      </div>
+      <br>
+      <div class="zemin">
+ 
+        <table class="tabBlok" align="center" cellspacing="0" cellpadding="0" border="0">
+            <tr><td class="dijitalSaat" id="dt"></td> 
+                <td>
+                    <table cellpadding="0" cellspacing="0" border="0">
+ 
+                        <tr><td class="saat" id="dt_saat">😴</td></tr>
+ 
+                        <!-- SHOWING SECONDS. -->
+                        <tr><td class="saat" id="dt_saniye"></td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div> 
+    <div>
+      
+    </div>
+   
+      
+   
+
+      <div class="text2 text-center">
+
+       <strong><span id="tarih"></span></strong> tarihinde
+        <strong>Kodluyoruz Frontend Web Development Patikası</strong>'nın
+        Javascript bölümü 1. Ödevindesiniz.
+      </div>
+    </div>
+   
+ 
+    <script src="./clock.js"></script>
+  </body>
+  <script>
+    // tarih oluşturma fonksiyonu
+    function dijitalSaat() {
+        var dt = new Date();    // DATE() ile yeni bir tarih nesnesi oluşturuldu.
+        var saat = dt.getHours();
+        var dakika = dt.getMinutes();
+        var saniye = dt.getSeconds();
+ 
+        dakika = Tik(dakika);
+        saniye = Tik(saniye);
+ 
+        document.getElementById('dt').innerHTML = saat + ":" + dakika;
+        document.getElementById('dt_saniye').innerHTML = saniye;
+ 
+        if (saat > 12) { 
+            document.getElementById('dt_saat').innerHTML = '😊'; 
+        }
+        else { 
+            document.getElementById('dc_hour').innerHTML = '😴'; 
+        }
+ 
+        // her 1 saniyede bir yenileme yapılıyor.
+        var time
+        time = setInterval('dijitalSaat()', 1000);
+    }
+ 
+    function Tik(tikDegeri) {
+        if (tikDegeri < 10) {
+            tikDegeri = "0" + tikDegeri;
+        }
+        return tikDegeri;
+    }
+    tikDegeri.innerHTML = `${time}->${tikDegeri}`
+</script>
+</html>
